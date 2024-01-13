@@ -1,6 +1,7 @@
 import React from "react";
 
-class invControl extends React.Component {
+
+class InvControl extends React.Component {
 
   constructor(props) {
     super(props);
@@ -10,10 +11,12 @@ class invControl extends React.Component {
   render(){
     return (
       <React.Fragment>
-        <p class ="content">boop the snoot</p>
+        <div className="content">
+        <p>boop the snoots</p>
+        </div>
       </React.Fragment>
     );
   }
 }
 
-export default invControl;
+export default InvControl;

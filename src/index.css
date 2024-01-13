@@ -23,7 +23,7 @@ body {
   border-radius: 15px;
   margin: 0;
   text-align: center;
-  width: 60%;
+  width: 100%;
   padding: 5px 5px;
 }
 
@@ -31,14 +31,12 @@ body {
   margin: 0;
   text-align: left;
   width: 60%;
-
 } 
 
 .postTitle {
   margin: 0;
   text-align: right;
-  width: 60%;
-
+  width: 100%;
 }
 
 .content {
