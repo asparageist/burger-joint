@@ -1,5 +1,5 @@
 import React from "react";
-
+import Inventory from "./Inventory";
 
 class InvControl extends React.Component {
 
@@ -13,6 +13,7 @@ class InvControl extends React.Component {
       <React.Fragment>
         <div className="content">
         <p>boop the snoots</p>
+        <Inventory />
         </div>
       </React.Fragment>
     );
