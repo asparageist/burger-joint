@@ -8,7 +8,7 @@ function InvList(props) {
   <React.Fragment>
     <hr />
     {props.invList.map((inventory, index) => 
-      <Inventory  name={inventory.burger}
+      <Inventory  burger={inventory.burger}
                   toppings={inventory.toppings}
                   price={inventory.price}
                   description={inventory.description}

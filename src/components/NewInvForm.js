@@ -5,11 +5,11 @@ import { v4 } from "uuid";
 function NewInvForm(props) {
 
   function handleNewFormSubmission(event) {
-    event.preventdefault();
+    event.preventDefault();
     props.onNewInvCreation({
       burger: event.target.burger.value,
       toppings: event.target.toppings.value,
-      price: parseInt(event.target.price.value),
+      price: event.target.price.value,
       description: event.target.description.value,
       id: v4()
     });
@@ -17,7 +17,7 @@ function NewInvForm(props) {
 
   return (
     <React.Fragment>
-    <form>
+    <form onSubmit={handleNewFormSubmission}>
       <input 
       type="text"
       name="burger"
@@ -52,6 +52,7 @@ function NewInvForm(props) {
       placeholder="QUANTITY"
       required />
       <br />
+      <button type ="submit">AWW YISS</button>
     </form>
     </React.Fragment>
   );
