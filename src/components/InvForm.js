@@ -18,7 +18,7 @@ function InvForm(props) {
       required />
       <br />
       <input 
-      type="number"
+      type="text"
       name="price"
       placeholder="PRICE"
       required />

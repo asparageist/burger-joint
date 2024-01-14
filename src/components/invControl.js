@@ -8,8 +8,17 @@ class InvControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: false
+      formVisibleOnPage: false,
+      mainInvList: []
     };
+  }
+
+  handleAddingNewInvToList = (newInv) => {
+    const newMainInvList = this.state.mainInvList.concat(newInv);
+    this.setState({
+      mainInvList: newMainInvList,
+      formVisibleOnPage: false
+    });
   }
 
   handleClick = () => {
@@ -22,10 +31,10 @@ class InvControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewInvForm />
+      currentlyVisibleState = <NewInvForm onNewInvCreation={this.handleAddingNewInvToList} />
       buttonText="BACK TO THE BURGERS";
     } else {
-      currentlyVisibleState = <InvList />
+      currentlyVisibleState = <InvList invList={this.state.mainInvList} />
       buttonText="NEW BURGER";
     }
     return (
