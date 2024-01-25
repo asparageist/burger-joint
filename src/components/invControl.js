@@ -9,7 +9,8 @@ class InvControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainInvList: []
+      mainInvList: [],
+      pText: "WITHIN THE BIN"
     };
   }
 
@@ -17,13 +18,15 @@ class InvControl extends React.Component {
     const newMainInvList = this.state.mainInvList.concat(newInv);
     this.setState({
       mainInvList: newMainInvList,
-      formVisibleOnPage: false
+      formVisibleOnPage: false,
+      pText: "WITHIN THE BIN"
     });
   }
 
   handleClick = () => {
     this.setState(prevState => ({
-      formVisibleOnPage: !prevState.formVisibleOnPage
+      formVisibleOnPage: !prevState.formVisibleOnPage,
+      pText: prevState.formVisibleOnPage ? "WITHIN THE BIN" : "WHAT"
     }));
   }
 
@@ -39,8 +42,9 @@ class InvControl extends React.Component {
     }
     return (
       <React.Fragment>
-        <div className="content">
-          <p>boop the snoots</p>
+        <div id="card2">
+          <p>{this.state.pText}</p>
+          <br />
           {currentlyVisibleState}
           <button onClick={this.handleClick}>{buttonText}</button>
         </div>

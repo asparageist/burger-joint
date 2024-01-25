@@ -4,13 +4,10 @@
 
 body {
   float: left;
-  background-image: url("./img/pile.png");
-  background-size: cover;
+  background-image: url("./img/galaxyburger.png");
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center top;
   font-family: 'Archivo', sans-serif;
-    display: flex;
-    flex-direction: column;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -25,6 +22,7 @@ body {
   text-align: center;
   width: 100%;
   padding: 5px 5px;
+
 }
 
 .preTitle {
@@ -37,13 +35,30 @@ body {
   margin: 0;
   text-align: right;
   width: 100%;
+  text-shadow: black 2px 2px 3px;
+  /* -webkit-text-stroke: 1px black; */
 }
 
-.content {
+#cardContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+#card1 {
+  width: 630px;
+  margin-right: 6vw;
+}
+
+#card2 {
+  flex:1;
+  max-height: 90vh;
+  width: 550px;
+  max-width: 45vw;
+  overflow-y: auto;
   text-align: center;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.5);
   border-radius: 15px;
-  width: 40%;
+  word-wrap: break-word;
 }
 
 a:link {

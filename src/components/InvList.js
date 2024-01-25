@@ -5,17 +5,18 @@ import PropTypes from "prop-types";
 function InvList(props) {
   return (
   <>
-  <React.Fragment>
     <hr />
-    {props.invList.map((inventory, index) => 
+    {props.invList.map((inventory, index) => (
+    <React.Fragment>
       <Inventory  burger={inventory.burger}
                   toppings={inventory.toppings}
                   price={inventory.price}
                   description={inventory.description}
                   key={index}
       />
-    )}
-  </React.Fragment>
+      <hr />
+      </React.Fragment>
+    ))}
   </>
   );
 }
