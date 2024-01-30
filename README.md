@@ -10,7 +10,7 @@ Clicking on any Items on the page will bring up their Details. From the Details 
 
 ## Setup/Installation Requirements
 
-1. Clone this repo.
+1. Clone this repo from _https://github.com/asparageist/burger-joint_.
 2. Open your shell (e.g., Terminal or GitBash) and navigate to this project's directory, called "burger-joint".
 3. Install dependencies: `$ npm install`.
 4. Run `$ npm run start` to start the project at: _https://localhost:3000_.
