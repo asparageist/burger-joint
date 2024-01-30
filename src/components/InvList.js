@@ -6,8 +6,8 @@ function InvList(props) {
   return (
   <>
     <hr />
-    {props.invList.map((inventory, index) => (
-    <React.Fragment>
+    {props.invList.map((inventory) => (
+    <React.Fragment key={inventory.id}>
       <Inventory  
                   whenBurgerClicked={props.onInvSelection}
                   burger={inventory.burger}
@@ -16,7 +16,6 @@ function InvList(props) {
                   description={inventory.description}
                   quantity={inventory.quantity}
                   id={inventory.id}
-                  key={inventory.id}
       />
       <hr />
       </React.Fragment>

@@ -33,6 +33,7 @@ function ReusableForm(props) {
       <input
       type="number"
       name="quantity"
+      id="quantity"
       min="0"
       max="130"
       defaultValue="130"
