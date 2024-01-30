@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { v4 } from "uuid";
+import ReusableForm from "./ReusableForm";
 
 function NewInvForm(props) {
 
@@ -18,43 +19,9 @@ function NewInvForm(props) {
 
   return (
     <React.Fragment>
-    <form onSubmit={handleNewFormSubmission}>
-      <input 
-      type="text"
-      name="burger"
-      placeholder="BURGER"
-      required />
-      <br />
-      <input 
-      type="text"
-      name="toppings"
-      placeholder="TOPPINGS"
-      required />
-      <br />
-      <input 
-      type="number"
-      name="price"
-      placeholder="PRICE"
-      required />
-      <br />
-      <input 
-      type="text"
-      name="description"
-      placeholder="DESCRIPTION"
-      required />
-      <br />
-      <label for="quantity">QUANTITY: </label>
-      <input
-      type="number"
-      name="quantity"
-      min="0"
-      max="130"
-      defaultValue="130"
-      placeholder="QUANTITY"
-      required />
-      <br />
-      <button type ="submit">AWW YISS</button>
-    </form>
+      <ReusableForm
+        formSubmissionHandler={handleNewFormSubmission}
+        buttonText="do what now" />
     </React.Fragment>
   );
 }

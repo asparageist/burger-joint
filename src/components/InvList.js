@@ -16,7 +16,7 @@ function InvList(props) {
                   description={inventory.description}
                   quantity={inventory.quantity}
                   id={inventory.id}
-                  key={index}
+                  key={inventory.id}
       />
       <hr />
       </React.Fragment>

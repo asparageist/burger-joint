@@ -2,6 +2,7 @@ import React from "react";
 import InvList from "./InvList";
 import NewInvForm from "./NewInvForm";
 import InvDetail  from "./InvDetail";
+import EditInvForm from "./EditInvForm";
 
 class InvControl extends React.Component {
 
@@ -11,7 +12,8 @@ class InvControl extends React.Component {
       formVisibleOnPage: false,
       mainInvList: [],
       pText: "WITHIN THE BIN",
-      currentBurger: null
+      currentBurger: null,
+      editing: false
     };
   }
 
@@ -37,11 +39,25 @@ class InvControl extends React.Component {
     });
   }
 
+  handleEditClick = () => {
+    this.setState({editing: true});
+  }
+
+  handleEditingBurger = (burgerToEdit) => {
+    const editedInvList = this.state.mainInvList.filter(inventory => inventory.id !== this.state.currentBurger.id).concat(burgerToEdit);
+    this.setState({
+      mainInvList: editedInvList,
+      editing: false,
+      currentBurger: null
+    });
+  }
+
   handleClick = () => {
     if (this.state.currentBurger != null) {
       this.setState({
         formVisibleOnPage: false,
-        currentBurger: null
+        currentBurger: null,
+        editing: false
       });
     } else {
     this.setState(prevState => ({
@@ -55,8 +71,17 @@ class InvControl extends React.Component {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (this.state.currentBurger != null) {
-      currentlyVisibleState = <InvDetail inventory = {this.state.currentBurger} onClickingDelete = {this.handleDeletingBurger} />;
+    if (this.state.editing) {
+      currentlyVisibleState = <EditInvForm 
+                                        inventory = {this.state.currentBurger}
+                                        onEditBurger = {this.handleEditingBurger} />
+      buttonText="BACK TO THE BURGERS";
+
+    } else if (this.state.currentBurger != null) {
+      currentlyVisibleState = <InvDetail
+                                        inventory = {this.state.currentBurger} 
+                                        onClickingDelete = {this.handleDeletingBurger}
+                                        onEditBurger = {this.handleEditClick} />;
       buttonText="BACK TO THE BURGERS";
 
     } else if (this.state.formVisibleOnPage) {
