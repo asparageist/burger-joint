@@ -3,15 +3,25 @@ import PropTypes from "prop-types";
 
 
 function InvDetail(props){
-  const { inventory, onClickingDelete } = props;
+  const { inventory, onEditBurger, onClickingDelete, onClickingUpdateBurger } = props;
+
+function handleIncrementBurger() {
+  onClickingUpdateBurger(inventory, 1);
+}
+
+function handleDecrementBurger() {
+  onClickingUpdateBurger(inventory, -1);
+}
 
   return (
     <>
       <h1>{inventory.burger}</h1>
-      <p>hello?</p>
-      <h3>{inventory.quantity}</h3>
-      <button onClick={ props.onEditBurger }>EDIT BURGER</button>
-      <button onClick={()=> props.onClickingDelete(inventory.id) }>EMPTY THE BIN</button>
+      <h3>BURGERS LEFT: {inventory.quantity}</h3>
+      <button onClick={handleDecrementBurger}>LESS</button>
+      <button onClick={handleIncrementBurger}>MORE</button>
+      <hr />
+      <button onClick={()=> props.onEditBurger(inventory.id) }>EDIT THE BURGER</button>
+      <button onClick={()=> props.onClickingDelete(inventory.id) }>TRASH THE BURGER</button>
       <br />
     </>
   );
@@ -20,7 +30,8 @@ function InvDetail(props){
 InvDetail.propTypes = {
   inventory: PropTypes.object,
   onClickingDelete: PropTypes.func,
-  onEditBurger: PropTypes.func
+  onEditBurger: PropTypes.func,
+  onClickingUpdateBurger: PropTypes.func
 };
 
 export default InvDetail;

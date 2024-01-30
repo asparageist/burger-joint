@@ -52,6 +52,21 @@ class InvControl extends React.Component {
     });
   }
 
+  handleQuantity = (burgerToUpdate, delta) => {
+    const burgerCount = burgerToUpdate.quantity + delta;
+
+    if (burgerCount >= 1 && burgerCount <= 130) {
+      const updatedBurgerCount = { ...burgerToUpdate, quantity: burgerCount };
+
+      const newMainInvList = this.state.mainInvList.filter(inventory => inventory.id !==burgerToUpdate.id).concat(updatedBurgerCount);
+
+      this.setState({
+        mainInvList: newMainInvList,
+        currentBurger: updatedBurgerCount
+      });
+    }
+  }
+
   handleClick = () => {
     if (this.state.currentBurger != null) {
       this.setState({
@@ -81,7 +96,8 @@ class InvControl extends React.Component {
       currentlyVisibleState = <InvDetail
                                         inventory = {this.state.currentBurger} 
                                         onClickingDelete = {this.handleDeletingBurger}
-                                        onEditBurger = {this.handleEditClick} />;
+                                        onEditBurger = {this.handleEditClick} 
+                                        onClickingUpdateBurger = {this.handleQuantity} />;
       buttonText="BACK TO THE BURGERS";
 
     } else if (this.state.formVisibleOnPage) {
