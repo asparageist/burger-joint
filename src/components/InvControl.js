@@ -29,6 +29,14 @@ class InvControl extends React.Component {
     });
   }
 
+  handleDeletingBurger = (id) => {
+    const newMainInvList = this.state.mainInvList.filter(inventory => inventory.id !== id);
+    this.setState({
+      mainInvList: newMainInvList,
+      currentBurger: null
+    });
+  }
+
   handleClick = () => {
     if (this.state.currentBurger != null) {
       this.setState({
@@ -48,7 +56,7 @@ class InvControl extends React.Component {
     let buttonText = null;
 
     if (this.state.currentBurger != null) {
-      currentlyVisibleState = <InvDetail inventory = {this.state.currentBurger} />;
+      currentlyVisibleState = <InvDetail inventory = {this.state.currentBurger} onClickingDelete = {this.handleDeletingBurger} />;
       buttonText="BACK TO THE BURGERS";
 
     } else if (this.state.formVisibleOnPage) {
