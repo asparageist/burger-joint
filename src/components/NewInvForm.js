@@ -9,8 +9,9 @@ function NewInvForm(props) {
     props.onNewInvCreation({
       burger: event.target.burger.value,
       toppings: event.target.toppings.value,
-      price: event.target.price.value,
+      price: parseInt(event.target.price.value),
       description: event.target.description.value,
+      quantity: parseInt(event.target.quantity.value),
       id: v4()
     });
   }
@@ -31,7 +32,7 @@ function NewInvForm(props) {
       required />
       <br />
       <input 
-      type="text"
+      type="number"
       name="price"
       placeholder="PRICE"
       required />
